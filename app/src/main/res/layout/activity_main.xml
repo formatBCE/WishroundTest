@@ -1,0 +1,91 @@
+<!-- A DrawerLayout is intended to be used as the top-level content view using match_parent for both width and height to consume the full space available. -->
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".MainActivity">
+
+    <!-- As the main content view, the view below consumes the entire
+         space available using match_parent in both dimensions. -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:minHeight="?attr/actionBarSize"
+            android:background="@android:color/holo_green_dark" />
+
+        <EditText
+            android:id="@+id/etSearch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Search"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="5dp"
+            android:singleLine="true"
+            android:layout_below="@+id/toolbar" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="CONTACT LIST"
+            android:id="@+id/textView"
+            android:layout_margin="5dp"
+            android:layout_below="@+id/etSearch"
+            android:layout_centerHorizontal="true" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@android:color/darker_gray"
+            android:layout_below="@+id/textView"
+            android:layout_alignParentLeft="true"
+            android:id="@+id/divider"
+            android:layout_alignParentStart="true" />
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/lvUsers"
+            android:layout_below="@+id/divider" />
+
+        <com.shamanland.fab.FloatingActionButton xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/fab"
+            android:src="@drawable/ic_action_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="16dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginEnd="16dp"
+            app:floatingActionButtonColor="@android:color/holo_red_dark" />
+    </RelativeLayout>
+
+    <ua.pp.formatbce.wishroundtest.ScrimInsetsFrameLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/navigation_holder"
+        android:layout_width="@dimen/navigation_drawer_width"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:elevation="10dp"
+        android:fitsSystemWindows="true"
+        app:insetForeground="#4000">
+
+        <fragment
+            android:id="@+id/navigation_drawer"
+            android:layout_width="@dimen/navigation_drawer_width"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:name="ua.pp.formatbce.wishroundtest.NavigationDrawerFragment"
+            tools:layout="@layout/fragment_navigation_drawer" />
+
+    </ua.pp.formatbce.wishroundtest.ScrimInsetsFrameLayout>
+</android.support.v4.widget.DrawerLayout>
